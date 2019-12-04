@@ -19,19 +19,31 @@ func getSha(fileName string) string {
 	return ""
 }
 
+func printNoFileFound(fileName string) {
+	fmt.Println("No file found", fileName)
+}
+
 func main() {
 	var args = os.Args[1:]
 	var argsLength = len(args)
 	if argsLength == 1 {
 		var firstArg = args[0]
 		var hash = getSha(firstArg)
-		fmt.Println(hash)
+		if hash == "" {
+			printNoFileFound(firstArg)
+		} else {
+			fmt.Println(hash)
+		}
 	} else if argsLength == 2 {
 		var firstArg = args[0]
 		var secondArg = args[1]
 		var firstHash = getSha(firstArg)
 		var secondHash = getSha(secondArg)
-		if firstHash == secondHash {
+		if firstHash == "" {
+			printNoFileFound(firstArg)
+		} else if secondHash == "" {
+			printNoFileFound(secondArg)
+		} else if firstHash == secondHash {
 			fmt.Println("File hashes match")
 			fmt.Println("Hash:", firstHash)
 		} else {
