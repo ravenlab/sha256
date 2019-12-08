@@ -4,5 +4,5 @@
 
 Clone the repository. Run go build. 
 
-Run sha256 <file> <file or hash>.
+Run `sha256 <file> <file or hash>`
 
