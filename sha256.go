@@ -20,7 +20,11 @@ func getSha(fileName string) string {
 }
 
 func printNoFileFound(fileName string) {
-	fmt.Println("No file found", fileName)
+	fmt.Println("No file found", fileName, "or not a valid hash.")
+}
+
+func isHash(hash string) bool {
+	return len(hash) == 64
 }
 
 func main() {
@@ -38,20 +42,26 @@ func main() {
 		var firstArg = args[0]
 		var secondArg = args[1]
 		var firstHash = getSha(firstArg)
-		var secondHash = getSha(secondArg)
+		var secondHash string
+		if(isHash(secondArg)) {
+			secondHash = secondArg
+		} else {
+			secondHash = getSha(secondArg)
+		}
+		
 		if firstHash == "" {
 			printNoFileFound(firstArg)
 		} else if secondHash == "" {
 			printNoFileFound(secondArg)
 		} else if firstHash == secondHash {
-			fmt.Println("File hashes match")
+			fmt.Println("Hashes match")
 			fmt.Println("Hash:", firstHash)
 		} else {
-			fmt.Println("File hashes DO NOT MATCH")
-			fmt.Println("First file:", firstHash)
-			fmt.Println("Second file:", secondHash)
+			fmt.Println("Hashes DO NOT MATCH")
+			fmt.Println("First:", firstHash)
+			fmt.Println("Second:", secondHash)
 		}
 	} else {
-		fmt.Println("sha256 <file1> <file2>")
+		fmt.Println("sha256 <file1> <file2/hash>")
 	}
 }
