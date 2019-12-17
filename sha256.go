@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"crypto/sha256"
 	"encoding/hex"
+	"strings"
 )
 
 
@@ -44,7 +45,7 @@ func main() {
 		var firstHash = getSha(firstArg)
 		var secondHash string
 		if(isHash(secondArg)) {
-			secondHash = secondArg
+			secondHash = strings.ToLower(secondArg)
 		} else {
 			secondHash = getSha(secondArg)
 		}
