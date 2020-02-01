@@ -4,7 +4,7 @@ jobs:
 
   build:
     name: Build
-    runs-on: ubuntu-latest
+    runs-on: [ubuntu-latest, windows-latest]
     steps:
 
     - name: Set up Go 1.13
@@ -25,10 +25,15 @@ jobs:
         fi
     - name: Build
       run: go build -v .
-    - name: Upload artifact
+    - name: Upload linux artifact
       uses: actions/upload-artifact@v1.0.0
       with:
         name: sha256
         # Directory containing files to upload
         path: sha256      
-        
+    - name: Upload windows artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: sha256
+        # Directory containing files to upload
+        path: sha256.exe
