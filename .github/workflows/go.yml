@@ -48,6 +48,6 @@ jobs:
     - name: Upload windows artifact
       uses: actions/upload-artifact@v1.0.0
       with:
-        name: sha256.exe
+        name: sha256
         # Directory containing files to upload
-        path: sha256
+        path: sha256.exe
