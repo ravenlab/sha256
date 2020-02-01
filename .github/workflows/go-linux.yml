@@ -4,10 +4,7 @@ jobs:
 
   build:
     name: Build
-    strategy:
-      matrix:
-        platform: [ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.platform }}
+    runs-on: [ubuntu-latest]
     steps:
 
     - name: Set up Go 1.13
@@ -33,10 +30,4 @@ jobs:
       with:
         name: sha256
         # Directory containing files to upload
-        path: sha256      
-    - name: Upload windows artifact
-      uses: actions/upload-artifact@v1.0.0
-      with:
-        name: sha256
-        # Directory containing files to upload
-        path: sha256.exe
+        path: sha256
