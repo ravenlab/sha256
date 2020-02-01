@@ -27,7 +27,7 @@ jobs:
     - name: Upload linux artifact
       uses: actions/upload-artifact@v1.0.0
       with:
-        name: sha256
+        name: sha256-linux
         # Directory containing files to upload
         path: sha256
   build-windows:
@@ -48,7 +48,7 @@ jobs:
     - name: Upload windows artifact
       uses: actions/upload-artifact@v1.0.0
       with:
-        name: sha256
+        name: sha256-windows
         # Directory containing files to upload
         path: sha256.exe
   build-macos:
@@ -70,6 +70,6 @@ jobs:
     - name: Upload macos artifact
       uses: actions/upload-artifact@v1.0.0
       with:
-        name: sha256
+        name: sha256-macos
         # Directory containing files to upload
         path: sha256
