@@ -1,6 +1,6 @@
 # sha256
 
-![Build](https://github.com/ravenlab/sha256/workflows/Build/badge.svg)
+[![Build](https://github.com/ravenlab/sha256/workflows/Build/badge.svg)](https://github.com/ravenlab/sha256/actions?query=workflow%3ABuild)
 
 ## How to use
 
